@@ -22,8 +22,8 @@ export default function ChangePassword() {
 
       const token = localStorage.getItem('token')
 
-      const response = await fetch(
-        'http://localhost:5000/api/auth/change-password',
+     const response = await fetch(
+  'https://backend-ia36kve4d-anitaralot42-oss-projects.vercel.app/api/auth/change-password',
         {
           method: 'PUT',
           headers: {
