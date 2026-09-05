@@ -5,8 +5,19 @@ require('dotenv').config()
 const connectDB = require('./config/db')
 
 const app = express()
+const cors = require('cors');
 
-app.use(cors())
+// CORS configuration ko strong banao
+app.use(cors({
+  origin: 'https://project-one-pi-26.vercel.app', // Ya chahe toh '*' bhi kar sakte ho sabke liye
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
+// Preflight requests ke liye ye sabse zaroori hai
+app.options('*', cors());
+
 app.use(express.json())
 
 connectDB()
